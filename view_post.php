@@ -32,16 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user->isLoggedIn()){
     <p><?php echo nl2br(htmlspecialchars($p['content'])); ?></p>
 
     <h3>Comments</h3>
-    <?php 
-    $comments = $comment->getByPostId($post_id);
-    if (!is_array($comments)) {
-    $comments = []; // prevent foreach warning if query fails
-}
-    foreach ($comments as $c):
-    ?>
+<?php
+$comments = $comment->getByPostId($post_id);
+foreach ($comments as $c):
+?>
     <div class="comment">
         <p><?php echo nl2br(htmlspecialchars($c['content'])); ?></p>
-        <p>Posted By <?php echo htmlspecialchars($c['name']); ?> on <?php echo $c['created_at']; ?></p>
+        <p>Posted by <?php echo htmlspecialchars($c['name']); ?> on <?php echo $c['created_at']; ?></p>
     </div>
 <?php endforeach; ?>
 

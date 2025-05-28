@@ -37,7 +37,7 @@ $recent_posts = $post->getAll(1, perpage:5);
     <div class="dashboard-actions">
         <a href="create_post.php" class="edit-link"> Create New Post</a>
         <a href="add_category.php" class="edit-link"> Add New Category</a>
-        <a href="approve_comment.php" class="edit-link"> Manage Comments</a>
+        <a href="approve_comments.php" class="edit-link"> Manage Comments</a>
     </div>
     <h3>Recent Posts</h3>
     <?php if (empty($recent_posts)) : ?>

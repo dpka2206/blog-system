@@ -8,7 +8,7 @@ if(!$user-> isLoggedIn()){
 }?>
 
 
-<h2> Welcome . <?php echo htmlspecialchars($name);?>!</h2>
+<h2> Welcome . <?php echo htmlspecialchars($_SESSION['name']);?>!</h2>
 <p> <a href="create_post.php">Create a New Post</a></p>
 <?php if($user-> isAdmin()) :?>
     <p> <a href = "approve_comments.php"> Approve Comments </a> </p>
