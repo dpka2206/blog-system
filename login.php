@@ -2,7 +2,7 @@
 require_once "includes/header.php";
 
 if ($user->isLoggedIn()) {
-    header("Location: dashboard.php");
+    header("Location: user_dashboard.php");
     exit();
 }
 
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $role = $_POST['role'];
 
     if ($user->login($email, $password, $role)){
-        header('Location: dashboard.php');
+        header('Location: admin_dashboard.php');
         exit();
     }else{
         echo '<p class ="error"> Invalid Email, password, or role. </p>';

@@ -19,7 +19,7 @@ class Post{
         LEFT JOIN categories ON posts.category_id = categories.id";
 
         if ($category_id){
-            $sql .= "WHERE posts.category_id = :category_id";
+            $sql .= " WHERE posts.category_id = :category_id";
         }
 
         $sql .= " ORDER BY posts.created_at DESC limit :limit OFFSET :offset";

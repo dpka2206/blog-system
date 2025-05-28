@@ -34,6 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user->isLoggedIn()){
     <h3>Comments</h3>
     <?php 
     $comments = $comment->getByPostId($post_id);
+    if (!is_array($comments)) {
+    $comments = []; // prevent foreach warning if query fails
+}
     foreach ($comments as $c):
     ?>
     <div class="comment">

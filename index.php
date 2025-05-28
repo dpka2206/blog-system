@@ -11,7 +11,7 @@ $perpage = 5;
 $category_id = isset($_GET['category_id'])&& $_GET['category_id'] !== ''? (int)$_GET['category_id'] :0;
 
 $posts = $post->getAll($page,$perpage,$category_id);
-$total_posts = $posts->getTotalPosts($category_id);
+$total_posts = $post->getTotalPosts($category_id);
 $total_pages = max( 1,ceil($total_posts/$perpage));
 $categories = $category -> getAll();
 

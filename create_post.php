@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($post->create($_SESSION['user_id'], $title, $content, $image, $category_id)) {
-        header("Location: dashboard.php");
+        header("Location: user_dashboard.php");
         exit;
     } else {
         echo '<p class="error">Failed to create post.</p>';

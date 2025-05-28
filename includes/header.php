@@ -19,7 +19,7 @@ $category = new Category($conn);
 <head>
     <meta charset="UTF-8">
     <title>My Blog</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
@@ -27,10 +27,10 @@ $category = new Category($conn);
     <nav>
         <a href="index.php">Home</a> |
         <?php if ($user->isLoggedIn()): ?>
-            <a href="dashboard.php">Dashboard</a> |
+            <a href="user_dashboard.php">Dashboard</a> |
             <a href="logout.php">Logout</a>
         <?php else: ?>
-            <a href="login.php">Login</a> |
+            <a href="login.php">Login</a> 
             <a href="register.php">Register</a>
         <?php endif; ?>
     </nav>

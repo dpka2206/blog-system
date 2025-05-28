@@ -14,14 +14,14 @@ class Comment{
     }
 
     public function getByPostId($post_id){
-        $stmt = $this->conn->prepare("SELECT comments, * , users.name FROM comments JOIN users on comments.user_id WHERE post_id = ? AND approved=1 ORDER BY created_at DESC");
+        $stmt = $this->conn->prepare("SELECT comments.* , users.name FROM comments JOIN users on comments.user_id WHERE post_id = ? AND approved=1 ORDER BY created_at DESC");
         $stmt->execute(array($post_id));
         $caregories =  $stmt->fetch(PDO::FETCH_ASSOC);
         return $caregories;
     }
 
     public function getPendingComments(){
-        $stmt = $this->conn->prepare("SELECT comments,*, posts.title,user.name FROM comments JOIN posts ON comments.post_id = post_id WHERE approved = 0 ORDER BY created_at DESC");
+        $stmt = $this->conn->prepare("SELECT comments.*, posts.title,user.name FROM comments JOIN posts ON comments.post_id = post_id WHERE approved = 0 ORDER BY created_at DESC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
