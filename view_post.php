@@ -38,7 +38,7 @@ foreach ($comments as $c):
 ?>
     <div class="comment">
         <p><?php echo nl2br(htmlspecialchars($c['content'])); ?></p>
-        <p>Posted by <?php echo htmlspecialchars($c['name']); ?> on <?php echo $c['created_at']; ?></p>
+        <p>Posted by <?php echo htmlspecialchars($c['name']); ?></p>
     </div>
 <?php endforeach; ?>
 
