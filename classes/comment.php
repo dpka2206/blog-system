@@ -14,10 +14,9 @@ class Comment{
     }
 
     public function getByPostId($post_id){
-        $stmt = $this->conn->prepare("SELECT comments.* , users.name FROM comments JOIN users on comments.user_id WHERE post_id = ? AND approved=1 ");
-        $stmt->execute(array($post_id));
-        $caregories =  $stmt->fetch(PDO::FETCH_ASSOC);
-        return $caregories;
+        $stmt = $this->conn->prepare("SELECT comments.*, users.name FROM comments JOIN users ON comments.user_id = users.id AND approved = 1 WHERE post_id = ?  ORDER BY created_at DESC");
+        $stmt->execute([$post_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getPendingComments(){

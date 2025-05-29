@@ -34,10 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user->isLoggedIn()){
     <h3>Comments</h3>
 <?php
 $comments = $comment->getByPostId($post_id);
+
 foreach ($comments as $c):
 ?>
     <div class="comment">
-        <p><?php echo nl2br(htmlspecialchars($c['content'])); ?></p>
+        <p><?php echo htmlspecialchars($c['content']) ?></p>
         <p>Posted by <?php echo htmlspecialchars($c['name']); ?></p>
     </div>
 <?php endforeach; ?>

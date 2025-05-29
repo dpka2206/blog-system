@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 $post = new Post($conn);
 $category = new Category($conn);
 
-$total_pages = $post->getTotalPosts();
+$total_posts = $post->getTotalPosts();
 $total_users = $conn -> query("SELECT COUNT(*) FROM users")->fetchColumn();
 $total_comments = $conn -> query("SELECT COUNT(*) FROM comments WHERE approved=0")->fetchColumn();
 $recent_posts = $post->getAll(1, perpage:5);
